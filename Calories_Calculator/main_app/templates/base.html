@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calories Calculator</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="{% url 'home' %}" class="brand-logo">Calories Calculator</a>
+        <ul class="right">
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'foods_index' %}">Food</a></li>
+            <li><a href="{% url 'meals_index' %}">Meals</a></li>
+            <li><a href="{% url 'goal_detail' %}">Goal</a></li>
+            <li>
+              <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Log out</button>
+              </form>
+            </li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <div class="right">Place holder footer</div>
+  </footer>
+</body>
+</html>

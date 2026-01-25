@@ -10,6 +10,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
+def home(request):
+    return render(request, "home.html")
+
+
 class FoodList(LoginRequiredMixin, ListView):
     model = Food
 class FoodDetail(LoginRequiredMixin, DetailView):
@@ -93,6 +97,7 @@ class GoalCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 
 
