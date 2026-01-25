@@ -14,7 +14,7 @@ def home(request):
     return render(request, "home.html")
 
 def foods_index(request):
-    return render(request, "foods_index.html")
+    return render(request, "food/foods_index.html")
 #food_index not complete
 
 
@@ -36,14 +36,14 @@ class FoodDelete(LoginRequiredMixin, DeleteView):
 @login_required
 def meals_index(request):
     meals = Meal.objects.filter(user=request.user )
-    return render(request, "meals_index.html", {"meals": meals})
+    return render(request, "meals/meals_index.html", {"meals": meals})
 
 
 @login_required
 def meals_detail(request, meal_id):
     meal = Meal.objects.get(id=meal_id, user =request.user)
     foods_not_added = Food.objects.exclude(id__in= meal.foods.all().values_list("id"))
-    return render(request,"meals_detail.html",
+    return render(request,"meals/meals_detail.html",
         {
             "meal": meal,
             "foods": foods_not_added,
@@ -67,12 +67,12 @@ class MealDelete(LoginRequiredMixin, DeleteView):
 @login_required
 def assoc_food(request, meal_id, food_id):
     Meal.objects.get(id=meal_id, user=request.user).foods.add(food_id)
-    return redirect("meals_detail", meal_id=meal_id)
+    return redirect("meal/meals_detail", meal_id=meal_id)
 
 @login_required
 def unassoc_food(request, meal_id, food_id):
     Meal.objects.get(id=meal_id, user=request.user).foods.remove(food_id)
-    return redirect("meals_detail", meal_id=meal_id)
+    return redirect("meal/meals_detail", meal_id=meal_id)
 
 
 
@@ -88,7 +88,7 @@ def goal_detail(request ):
             total_calories= total_calories+ food.calories
 
 
-    return render(request ,"goal_detail.html",
+    return render(request ,"goal/goal_detail.html",
         {
             "goal": goal,
             "total_calories": total_calories
