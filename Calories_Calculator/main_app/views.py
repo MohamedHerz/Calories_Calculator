@@ -13,6 +13,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
     return render(request, "home.html")
 
+def foods_index(request):
+    return render(request, "foods_index.html")
+#food_index not complete
+
 
 class FoodList(LoginRequiredMixin, ListView):
     model = Food
@@ -26,20 +30,20 @@ class FoodUpdate(LoginRequiredMixin, UpdateView):
     fields = ["food_name", "calories", "fat", "protein","carbs", "image"]
 class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
-    success_url = "/foods/"
+    success_url = "/food/"
 
 
 @login_required
 def meals_index(request):
     meals = Meal.objects.filter(user=request.user )
-    return render(request, "meals/index.html", {"meals": meals})
+    return render(request, "meals_index.html", {"meals": meals})
 
 
 @login_required
 def meals_detail(request, meal_id):
     meal = Meal.objects.get(id=meal_id, user =request.user)
     foods_not_added = Food.objects.exclude(id__in= meal.foods.all().values_list("id"))
-    return render(request,"meals/detail.html",
+    return render(request,"meals_detail.html",
         {
             "meal": meal,
             "foods": foods_not_added,
@@ -84,7 +88,7 @@ def goal_detail(request ):
             total_calories= total_calories+ food.calories
 
 
-    return render(request ,"goals/detail.html",
+    return render(request ,"goal_detail.html",
         {
             "goal": goal,
             "total_calories": total_calories
