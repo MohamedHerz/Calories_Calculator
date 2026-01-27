@@ -1,5 +1,29 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>Meal details</h1>
-<hr>
+{% extends "base.html" %} {% block content %}
+
+<h1>{{ meal }}</h1>
+<h2>Meal's details</h2>
+<ul>
+  {% for item in current_foods %}
+  <li>
+    {{ item.food }} - {{ item.weight }}g - {{ item.calories }} cal
+    <a href="{% url 'unassoc_food' meal.id item.food.id %}">Remove</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+<p><strong>Total Calories:</strong> {{ total_calories }}</p>
+
+<h2>Add Food</h2>
+<form method="post" action="{% url 'assoc_food' meal.id%}">
+  {% csrf_token %}
+  <select name="food_id">
+    {% for food in foods_not_added %}
+    <option value="{{ food.id }}">
+      {{ food }} - {{ food.calories }} cal / 100g
+    </option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="Add" />
+</form>
 {% endblock %}

@@ -1,5 +1,15 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>Meals</h1>
-<hr>
+{% extends "base.html" %} {% block content %}
+
+<h1>Today's Meals</h1>
+
+<ul>
+  {% for meal in meals %}
+  <li>
+    <a href="{% url 'meals_detail' meal.id %}">{{meal.name}}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'meal_create' %}">New Meal!</a>
+
 {% endblock %}

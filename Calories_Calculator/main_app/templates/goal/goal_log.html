@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Calories consumed history </h1>
+
+<form method="POST" id="goalForm">
+  {%csrf_token%}
+  <label>Daily goal:</label>
+  <input type="number" name="calories" value="{{ goal.calories }}">
+  <button type="submit">Save</button>
+</form>
+  <ul>
+    {% comment %} for key, value in d.items(): looping in objects {% endcomment %}
+    {% for date, total_calories in daily_total.items %}
+      <li>{{ date }} ----  ({{ total_calories }} / {{ goal.calories }}) Calories consumed</li>
+    {% endfor%}
+  </ul>
+
+{% endblock %}
