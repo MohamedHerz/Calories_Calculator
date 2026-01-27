@@ -1,0 +1,14 @@
+{%extends 'base.html' %}
+{%block content %}
+
+<h1>{{food.food_name}}</h1>
+
+<p>Calories: {{food.calories}}</p>
+<p>Fats: {{food.fat}}</p>
+<p>Protein: {{food.protein}}</p>
+<p>Carbs: {{food.carbs}}</p>
+
+<a href="{% url 'foods_update' food.id %}">Edit</a>
+<a href="{% url 'foods_delete' food.id %}">Delete</a>
+
+{%endblock %}

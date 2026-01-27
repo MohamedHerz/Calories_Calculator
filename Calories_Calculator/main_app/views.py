@@ -13,8 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
     return render(request, "home.html")
 
-def foods_index(request):
-    return render(request, "food/foods_index.html")
+
 #food_index not complete
 
 
@@ -30,7 +29,7 @@ class FoodUpdate(LoginRequiredMixin, UpdateView):
     fields = ["food_name", "calories", "fat", "protein","carbs", "image"]
 class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
-    success_url = "/food/"
+    success_url = "/foods/"
 
 
 @login_required
