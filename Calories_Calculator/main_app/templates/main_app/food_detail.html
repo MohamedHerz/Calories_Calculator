@@ -1,13 +1,51 @@
-{%extends 'base.html' %} {%block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<h1>{{food}}</h1>
+<div class="food-detail-container">
+  <div class="food-image">
+    <img src="{% static food.image|cut:'main_app/static/' %}" alt="{{ food.food_name }}">
+  </div>
 
-<p>Calories: {{food.calories}}</p>
-<p>Fats: {{food.fat}}</p>
-<p>Protein: {{food.protein}}</p>
-<p>Carbs: {{food.carbs}}</p>
+  <div class="food-info">
+    <h1>{{ food.food_name }}</h1>
+    <p>Calories: {{ food.calories }}</p>
+    <p>Fats: {{ food.fat }}g</p>
+    <p>Protein: {{ food.protein }}g</p>
+    <p>Carbs: {{ food.carbs }}g</p>
 
-<a href="{% url 'foods_update' food.id %}">Edit</a>
-<a href="{% url 'foods_delete' food.id %}">Delete</a>
+    <div class="food-buttons">
+      <a href="{% url 'foods_update' food.id %}" class="btn">Edit</a>
+      <a href="{% url 'foods_delete' food.id %}" class="btn delete">Delete</a>
+    </div>
+  </div>
 
-{%endblock %}
+  <div class="food-chart">
+    <canvas id="macroChart" width="300" height="300"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('macroChart').getContext('2d');
+  const macroChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Fat', 'Protein', 'Carbs'],
+      datasets: [{
+        data: [{{ food.fat }}, {{ food.protein }}, {{ food.carbs }}],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+      }]
+    },
+    options: {
+      responsive: false,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+</script>
+
+{% endblock %}

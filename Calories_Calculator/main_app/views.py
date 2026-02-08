@@ -7,7 +7,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 
+from django.core.paginator import Paginator
 from datetime import date
 
 # Create your views here.
@@ -19,22 +21,16 @@ def home(request):
 
 class FoodList(LoginRequiredMixin, ListView):
     model = Food
-
+    paginate_by = 4
 
 class FoodDetail(LoginRequiredMixin, DetailView):
     model = Food
-
-
 class FoodCreate(LoginRequiredMixin, CreateView):
     model = Food
     fields = ["food_name", "calories", "fat", "protein", "carbs", "image"]
-
-
 class FoodUpdate(LoginRequiredMixin, UpdateView):
     model = Food
     fields = ["food_name", "calories", "fat", "protein", "carbs", "image"]
-
-
 class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
     success_url = "/foods/"

@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #007BFF;
+  padding: 15px 0;
+  color: #ffffff;
+}
+
+header .nav-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a.brand-logo {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+header ul li a,
+header ul li button {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+header ul li a:hover,
+header ul li button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+header ul li form.logout-form {
+  margin: 0;
+  display: inline-block;
+}
+
+header ul li form.logout-form button {
+  color: #ffffff;
+  background: none;
+  border: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+header ul li form.logout-form button:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+
+button, input[type="submit"] {
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+main.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  flex: 1;
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+ul li a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #f1f1f1;
+  padding: 15px 0;
+  text-align: right;
+  color: #555555;
+  margin-top: 40px;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.food-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.food-card h3 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #007BFF;
+}
+
+.food-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.pagination {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.pagination a, .pagination span {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: 500;
+}
+
+.pagination span.current {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.food-detail-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.food-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.food-info {
+  flex: 1;
+}
+
+.food-info h1 {
+  color: #007BFF;
+  margin-bottom: 15px;
+}
+
+.food-info p {
+  margin-bottom: 8px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+}
+

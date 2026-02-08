@@ -18,7 +18,7 @@
             <li><a href="{% url 'meals_index' %}">Meals</a></li>
             <li><a href="{% url 'goal_log' %}">Goal</a></li>
             <li>
-              <form method="post" action="{% url 'logout' %}">
+              <form method="post" action="{% url 'logout' %}" class="logout-form">
                 {% csrf_token %}
                 <button type="submit">Log out</button>
               </form>
@@ -32,7 +32,9 @@
       </nav>
     </header>
 
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
 
     <footer>
       <div class="right">Place holder footer</div>

@@ -1,12 +1,38 @@
-{%extends 'base.html'%} {%block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
 <h1>Food</h1>
-<a href="{% url 'foods_create' %}">Add Food</a>
+<a href="{% url 'foods_create' %}" class="btn">Add Food</a>
 
-<ul>
-  {%for food in food_list %}
-  <li><a href="{% url 'foods_detail' food.id %}"> {{food}} </a></li>
-  {%endfor%}
-</ul>
+<div class="food-grid">
+  {% for food in object_list %}
+    <div class="food-card">
+      <a href="{% url 'foods_detail' food.id %}">
+        <img src="{% static food.image|cut:'main_app/static/' %}" alt="{{ food.food_name }}">
+      </a>
+      <h3>{{ food.food_name }}</h3>
+      <p>{{ food.calories }} cal / 100g</p>
+    </div>
+  {% endfor %}
+</div>
 
-{% endblock%}
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">« Prev</a>
+  {% endif %}
+
+  {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+      <span class="current">{{ num }}</span>
+    {% else %}
+      <a href="?page={{ num }}">{{ num }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next »</a>
+  {% endif %}
+</div>
+
+{% endblock %}
