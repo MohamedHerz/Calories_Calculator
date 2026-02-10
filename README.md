@@ -4,55 +4,47 @@
 #### By: x
 
 ***
-#### [GitHub](https://github.com/MohamedHerz/Calories_Calculator) | [Render](https://add-it-fx6s.onrender.com/) | [Trello](https://trello.com/b/H8X4jvEi/calories-calculator)
-***
-##### ![](/public/logo/addit.png)
+#### [GitHub](https://github.com/MohamedHerz/Calories_Calculator) | [Render]() | [Trello](https://trello.com/b/H8X4jvEi/calories-calculator)
 ***
 ### ***Description***
-#### Addit is a website that allows users to post advertisements for selling their vehicles,
-#### the website allows user to input the details of their vehicles such as milage, price, brand, module.
-#### Addit also provides a bidding feature, the seller could set the initial price for bids it
-#### also enables sellers to finalize a sale once Ad owner clicks on the button the system automatically declare winner and share their contact number with the seller.
+#### A food calculator site allows users to instantly track daily nutritional intake, including calories and #### searching a comprehensive food database.
 
-### Addit provides a friendly user navigation bar that aids potential buyers to search for specific modules and types of their desired vehicles.
 
 ***
 ### **Getting started**
-#### The website loads Home page on load welcoming guests, it provides the option for new users to sign up and current users to sign in. once signed in successfully users could view displayed advertisements by other users or create their own advertisement also a shortcut in navbar to check their current bids.
+#### The website loads Home page rendering a short description about the site it will give the option to guests to sign up or sign in then it will redirect them to home page after signing in, on nav bar there is taps for food where user could see the available food in database, a button to add food. next tap is meals where user is able to add any food from the food list, at goal page users are able to set a daily calories to consume a progress bar will show the amount of calories they have consumed / their log also it register it by dates.
 ***
 
 ### ***Technologies used***
-* Utilizing EJS Templates
-* MongoDB
-* Express
-* Node js
+* Utilizing EJS for charts
+* SQL database
+* python - django framework
 * Git
 
 ***
 ### Database ERD
 
-![](/public/ERD/erd_add-it.drawio.png)
+![](Calories_Calculator\Screenshot 2026-01-21 182154.png)
 
 ### ***QA***
-- [x] Users cannot sign in with wrong username/password
-- [x] Email input validate the the correct email format
-- [x] Ad owners cannot bid on their own Ad
-- [x] Bidders cannot place bids lower than the original price sat by ad owner
-- [x] Bidders cannot set bids less than the last hight bet
-- [x] Users cannot make changes on the details of other users ads
-- [x] Bids cannot be modified or deleted once placed
+- [x] Users cannot delete/edit/read other users logs or meal details
+- [x] Anyone can delete or edit or add food in food model as it is a community managed app
+- [x] Authentication implemented
+- [x] App's navigation responds to user login status
 
 ***
 ### Future enhancement
-- Enabling users to upload image for ads
-- Providing users the option to set a starting and ending date for bids
-- More friendly user Interface
-- Validation for more secure passwords
+- Enabling super user to give more permission to certain users to maintain the app database
+- More detailed chart on food details
+- Send a warning to users if they have vitamin deficiency
+- Providing option for users to enable receiving notifications on their email if they missed a day on the site
 
 ***
-### **Credits**
+### **Resources**
 
-#### [Multer](npmjs.com/package/multer)
-#### [ERD design tool](diagrams.net)
-#### [wireframe design tool](figma.com)
-#### [dev map design tool](trello.com)
+#### [1](https://stackoverflow.com/questions/3294889/iterating-over-a-dictionary-using-a-for-loop-getting-keys)
+#### [2](https://stackoverflow.com/questions/67504450/django-how-to-restrict-staff-user-to-edit-or-delete-others-staff-user-post-from)
+#### [3](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.has_delete_permission)
+#### [4]((https://www.reddit.com/r/django/comments/ebbsrn/how_to_limit_users_to_only_edit_their_own_posts/))
+#### [5](https://ccbv.co.uk/projects/Django/1.9/django.contrib.auth.mixins/UserPassesTestMixin/)
+
