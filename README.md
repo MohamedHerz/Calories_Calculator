@@ -4,7 +4,7 @@
 #### By: x
 
 ***
-#### [GitHub](https://github.com/MohamedHerz/Calories_Calculator) | [Render]() | [Trello](https://trello.com/b/H8X4jvEi/calories-calculator)
+#### [GitHub](https://github.com/MohamedHerz/Calories_Calculator) | [Render](https://calories-calculator-5dct.onrender.com/) | [Trello](https://trello.com/b/H8X4jvEi/calories-calculator)
 ***
 ### ***Description***
 #### A food calculator site allows users to instantly track daily nutritional intake, including calories and #### searching a comprehensive food database.
@@ -40,6 +40,10 @@
 - Providing option for users to enable receiving notifications on their email if they missed a day on the site
 
 ***
+
+#### [screenshot of deployed site](Calories_Calculator\image.png)
+
+
 ### **Resources**
 
 #### [1](https://stackoverflow.com/questions/3294889/iterating-over-a-dictionary-using-a-for-loop-getting-keys)
