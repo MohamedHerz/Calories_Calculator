@@ -4,7 +4,7 @@
 #### By: x
 
 ***
-#### [GitHub](https://github.com/MohamedHerz/Calories_Calculator) | [Render]() | [Trello](https://trello.com/b/H8X4jvEi/calories-calculator)
+#### [GitHub](https://github.com/MohamedHerz/Calories_Calculator) | [Render](https://calories-calculator-5dct.onrender.com/) | [Trello](https://trello.com/b/H8X4jvEi/calories-calculator)
 ***
 ### ***Description***
 #### A food calculator site allows users to instantly track daily nutritional intake, including calories and #### searching a comprehensive food database.
@@ -24,7 +24,9 @@
 ***
 ### Database ERD
 
-![](Calories_Calculator\Screenshot 2026-01-21 182154.png)
+![ERD](/Calories_Calculator/Screenshot%202026-01-21%20182154.png)
+### Screenshot of site UI
+![Screenshot of the site](/Calories_Calculator/image.png)
 
 ### ***QA***
 - [x] Users cannot delete/edit/read other users logs or meal details
