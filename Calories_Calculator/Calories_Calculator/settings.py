@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-_x2u8s)!h$@3lkh+$xg_dwh5aw$a9*3+c)6n@kvqhtw+p8z=n1
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["calories-calculator-5dct.onrender.com"]
 
 
 # Application definition
